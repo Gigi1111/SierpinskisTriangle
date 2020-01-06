@@ -8,7 +8,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-public class DrawCircle extends Canvas {
+public class DrawAnotherRecursion_7 extends Canvas {
 	
 	static int height;
 	static int width;
@@ -25,7 +25,7 @@ public class DrawCircle extends Canvas {
     	
     	side = (int)screenSize.height-70;
     	JFrame frame = new JFrame("My Drawing");
-        canvas = new DrawCircle();
+        canvas = new DrawAnotherRecursion_7();
         canvas.setSize(side,side);
         frame.add(canvas);
         frame.pack();

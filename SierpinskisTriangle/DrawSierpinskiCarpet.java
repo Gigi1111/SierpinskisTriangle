@@ -8,7 +8,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-public class DrawSquare extends Canvas {
+public class DrawSierpinskiCarpet extends Canvas {
 	
 	static int height;
 	static int side;
@@ -25,7 +25,7 @@ public class DrawSquare extends Canvas {
     	side = (int)screenSize.height;
     	side-=70;
         JFrame frame = new JFrame("My Drawing");
-        canvas = new DrawSquare();
+        canvas = new DrawSierpinskiCarpet();
         canvas.setSize(side,side);
         frame.add(canvas);
         frame.pack();
