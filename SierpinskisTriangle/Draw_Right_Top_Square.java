@@ -63,8 +63,7 @@ public class Draw_Right_Top_Square extends Canvas {
 		        paintNext(g,x,y-newNew,newNew,c);//left top
 		        paintNext(g,x+newSide,y+newSide-newNew,newNew,c);//right bottom
 		       
-	    }
-    	
+	    } 	
     	
     }
     
