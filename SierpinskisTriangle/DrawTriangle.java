@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 public class DrawTriangle extends Canvas {
 	
-	static int height;
+	
 	static int side;
 	int s;
 	int h;
@@ -22,13 +22,9 @@ public class DrawTriangle extends Canvas {
     public static void main(String[] args) {
     	screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     	
-    	height = (int)screenSize.height;
-    	height-=70;
-    	//x,2x,xRoot3
-    	side = (int)(2*height/Math.sqrt(3));
         JFrame frame = new JFrame("My Drawing");
         canvas = new DrawTriangle();
-        canvas.setSize(side,height);
+        canvas.setSize((int)screenSize.width,(int)screenSize.height-70);
         frame.add(canvas);
         frame.pack();
         frame.setVisible(true);
@@ -38,13 +34,16 @@ public class DrawTriangle extends Canvas {
     	
     	int windowHeight = canvas.getHeight();
     	int windowWidth = canvas.getWidth(); 
+    	int height;
     	
-    	windowHeight +=150;
-    	side = windowHeight>=windowWidth?windowWidth:windowHeight;
-    	//height-=70;
-    	//x,2x,xRoot3
-    	//side = (int)(2*height/Math.sqrt(3));
-    	height = (int)(Math.sqrt(3)*side/2);    	
+    	if( windowHeight+100>=windowWidth) {
+	    	side = windowWidth;
+	    	height = (int)(Math.sqrt(3)*side/2);    	
+    	}else {
+    		height = windowHeight;
+    		side = (int)(height*2/Math.sqrt(3));
+    	}
+    	
     	//left right top
         int xpoints[] = {0, side/2, side};
         int ypoints[] = {height, 0, height};
@@ -62,7 +61,7 @@ public class DrawTriangle extends Canvas {
    }
     public void paintNext(Graphics g, int x, int y, int s,int h, Color c){
       int ss = (int)(s/2);   	
-      int hh = (int)(h/2); //(int)(Math.sqrt(3)*ss/2);    
+      int hh = (int)(h/2);    
       if(ss>2) {
 	      int xpoints[] = {x-ss/2, x, x+ss/2};
 	      int ypoints[] = {y+hh,y+2*hh,y+hh};
