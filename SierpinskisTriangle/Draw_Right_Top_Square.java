@@ -22,8 +22,9 @@ public class Draw_Right_Top_Square extends Canvas {
     public static void main(String[] args) {
     	screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     	
-    	side = (int)screenSize.height;
-    	side-=70;
+    	side = screenSize.height>screenSize.width?(int)screenSize.width:(int)screenSize.height;
+    	if(side==screenSize.height)
+    		side-=70;
     	
         JFrame frame = new JFrame("My Drawing");
         canvas = new Draw_Right_Top_Square();
@@ -38,30 +39,35 @@ public class Draw_Right_Top_Square extends Canvas {
     	int xpoints[] = {0,side, side,0};
         int ypoints[] = {0,0,side,side};
       
+        //paint canvas background
     	Color c = new Color(75, 100, 191);
          g.setColor(c);
          g.fillPolygon(xpoints, ypoints, 4);
-          
-    	int x = 0;//left top
-    	int y = side/2;//left top
+        
+        //first 
+    	int x = 0;
+    	int y = side/2;
     	int newSide = side/2;
     	
-    	paintNext(g,x,y,newSide,c);
+    	//start painting squares
+    	paintNext(g,x,y,newSide);
         
    }
-    public void paintNext(Graphics g, int x,int y,int newSide, Color c){
+    public void paintNext(Graphics g, int x,int y,int newSide){
       
     	int xpoints[] ={x, x+newSide,x+newSide,x};
     	int ypoints[] = {y,y,y+newSide,y+newSide};
-    	c = new Color((140+newSide*2)%255, (20+newSide*3)%255, (100+newSide)%255);
+    	//paint bigger/middle square
+    	Color c = new Color((140+newSide*2)%255, (20+newSide*3)%255, (100+newSide)%255);
         g.setColor(c);
         g.fillPolygon(xpoints, ypoints, 4);
         
         int newNew=newSide/2;
 
+        //paint top-left and bottom-right squares
 	    if(newNew>=1) {            
-		        paintNext(g,x,y-newNew,newNew,c);//left top
-		        paintNext(g,x+newSide,y+newSide-newNew,newNew,c);//right bottom
+		        paintNext(g,x,y-newNew,newNew);//left top
+		        paintNext(g,x+newSide,y+newSide-newNew,newNew);//right bottom
 		       
 	    } 	
     	

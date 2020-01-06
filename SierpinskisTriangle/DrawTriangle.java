@@ -15,7 +15,7 @@ public class DrawTriangle extends Canvas {
 	int s;
 	int h;
 	int i=150;
-	int interval =5;
+	int interval =25;
 	int blue=200;
 	static Dimension screenSize;
 	static Canvas canvas ;
@@ -68,8 +68,10 @@ public class DrawTriangle extends Canvas {
 	      int npoints = 3;     
 	      g.setColor(c);
 	      g.fillPolygon(xpoints, ypoints, npoints);
-	      i+=interval;
-	      c = new Color(i%255,0,(blue+i/2)%255);
+	     
+	      c = new Color((int) (s*Math.random()*255)%255,
+	    		  (int) (s*Math.random()*255)%255,(int) (s*Math.random()*255)%255);
+		    
 	      paintNext(g, x-ss/2, y+hh, ss, hh,c);//left
 	      paintNext(g, x+ss/2, y+hh, ss, hh,c);//right
 	      paintNext(g, x, y, ss, hh,c);//top

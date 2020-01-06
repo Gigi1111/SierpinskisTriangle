@@ -44,27 +44,27 @@ public class DrawSquare extends Canvas {
     	int y = side/3;//left top
     	int newSide = side/3;
     	
-    	paintNext(g,x,y,newSide,c);
+    	paintNext(g,x,y,newSide);
         
    }
-    public void paintNext(Graphics g, int x,int y,int newSide, Color c){
+    public void paintNext(Graphics g, int x,int y,int newSide){
       
     	int xpoints[] ={x, x+newSide,x+newSide,x};
     	int ypoints[] = {y,y,y+newSide,y+newSide};
-    	c = new Color((200+newSide*2)%255, (50+newSide*3)%255, (100+newSide)%255);
+    	Color c = new Color((200+newSide*2)%255, (50+newSide*3)%255, (100+newSide)%255);
         g.setColor(c);
         g.fillPolygon(xpoints, ypoints, 4);//draws polygon outline
         
         int newNew=newSide/3;
         if(newNew>=1) {            
-	        paintNext(g,x-2*newNew,y-2*newNew,newNew,c);//left top
-	        paintNext(g,x+newNew,y-2*newNew,newNew,c);//middle top
-	        paintNext(g,x+newSide+newNew,y-2*newNew,newNew,c);//right top
-	        paintNext(g,x+newSide+newNew,y+newNew,newNew,c);//right middle
-	    	paintNext(g,x+newSide+newNew,y+newSide+newNew,newNew,c);//right bottom
-	    	paintNext(g,x-2*newNew,y+newNew,newNew,c);//left middle
-	    	paintNext(g,x-2*newNew,y+newSide+newNew,newNew,c);//left bottom
-	    	paintNext(g,x+newNew,y+newSide+newNew,newNew,c);//middle bottom
+	        paintNext(g,x-2*newNew,y-2*newNew,newNew);//left top
+	        paintNext(g,x+newNew,y-2*newNew,newNew);//middle top
+	        paintNext(g,x+newSide+newNew,y-2*newNew,newNew);//right top
+	        paintNext(g,x+newSide+newNew,y+newNew,newNew);//right middle
+	    	paintNext(g,x+newSide+newNew,y+newSide+newNew,newNew);//right bottom
+	    	paintNext(g,x-2*newNew,y+newNew,newNew);//left middle
+	    	paintNext(g,x-2*newNew,y+newSide+newNew,newNew);//left bottom
+	    	paintNext(g,x+newNew,y+newSide+newNew,newNew);//middle bottom
     	
         }
     	

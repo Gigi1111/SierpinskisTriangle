@@ -43,23 +43,22 @@ public class DrawCircle extends Canvas {
     	int r = side/2;
     	int x = side/2-r/2;
     	int y = side/2-r/2;
-	    c = new Color(i%255,0,(blue+i/2)%255);
-        g.setColor(c);
-        paintNext(g,x,y,r,c);
+	   
+        paintNext(g,x,y,r);
         
    }
-    public void paintNext(Graphics g, int x, int y, int r, Color c){
+    public void paintNext(Graphics g, int x, int y, int r){
     	
-    	c = new Color((120+r*2)%255, (10+r*3)%255, (210+r*15)%255);
+    	Color c = new Color((120+r*2)%255, (10+r*3)%255, (210+r*15)%255);
     	g.setColor(c);
     	g.fillOval(x, y, r, r);
     	
     	int newR=r/2;
     	if(newR>=2) {
-    		paintNext(g, x-newR/2, y+newR/2, newR, c);//left
-    		paintNext(g, x+r-newR/2, y+newR/2, newR, c);//right
-    		paintNext(g, x+r/2-newR/2, y-newR/2, newR, c);//top
-    		paintNext(g, x+r/2-newR/2, y+r-newR/2, newR, c);//bottom
+    		paintNext(g, x-newR/2, y+newR/2, newR);//left
+    		paintNext(g, x+r-newR/2, y+newR/2, newR);//right
+    		paintNext(g, x+r/2-newR/2, y-newR/2, newR);//top
+    		paintNext(g, x+r/2-newR/2, y+r-newR/2, newR);//bottom
     	}
     	    
     }
