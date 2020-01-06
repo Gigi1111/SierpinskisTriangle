@@ -24,8 +24,7 @@ public class Draw_Right_Top_Square extends Canvas {
     	
     	side = (int)screenSize.height;
     	side-=70;
-    	//x,2x,xRoot3
-    	//side = (int)(2*height/Math.sqrt(3));
+    	
         JFrame frame = new JFrame("My Drawing");
         canvas = new Draw_Right_Top_Square();
         canvas.setSize(side,side);
@@ -56,7 +55,7 @@ public class Draw_Right_Top_Square extends Canvas {
     	int ypoints[] = {y,y,y+newSide,y+newSide};
     	c = new Color((140+newSide*2)%255, (20+newSide*3)%255, (100+newSide)%255);
         g.setColor(c);
-        g.fillPolygon(xpoints, ypoints, 4);//draws polygon outline
+        g.fillPolygon(xpoints, ypoints, 4);
         
         int newNew=newSide/2;
 
